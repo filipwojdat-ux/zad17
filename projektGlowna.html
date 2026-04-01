@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Bari – Wymarzone wakacje</title>
+    <link rel="stylesheet" href="projektcss.css">
+</head>
+<body>
+
+<header>
+    <h1>Bari – Wybrzeże Adriatyku</h1>
+    <nav>
+        <ul>
+            <li><a href="projektGlowna.html">Strona główna</a></li>
+            <li><a href="projektgaleria.html">Galeria</a></li>
+            <li><a href="projektinfo.html">Informacje</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Sekcja powitalna -->
+<section class="hero">
+    <h2>Odkryj uroki Bari</h2>
+    <p>Bari to historyczne miasto portowe we Włoszech, znane z pięknych plaż, starych kościołów i klimatycznych uliczek.</p>
+    <button onclick="window.location.href='https://pl.wikipedia.org/wiki/Bari';">
+        Przejdź do Bari na Wikipedii
+      </button>
+</section>
+
+<!-- Sekcja opisu miasta -->
+<section id="opis" class="sekcja">
+    <h2>Dlaczego warto odwiedzić Bari?</h2>
+    <p>
+        Bari jest stolicą regionu Apulia, leży nad Adriatykiem. 
+        Znajdziesz tu zabytki, jak Bazylika św. Mikołaja, zamek Castello Svevo, 
+        a także wspaniałe restauracje serwujące włoskie specjały. 
+        Spacer po starym mieście i nadmorskim bulwarze Lungomare to niezapomniane przeżycie.
+    </p>
+</section>
+
+<footer>
+    <p>Projekt strony – 2026</p>
+</footer>
+
+<script>
+// Funkcja płynnego przewijania do sekcji opisu
+function przewinDoSekcji() {
+    document.getElementById("opis").scrollIntoView({ behavior: "smooth" });
+}
+
+// Animacja pojawiania się sekcji przy przewijaniu
+const obserwator = new IntersectionObserver(elementy => {
+    elementy.forEach(element => {
+        if(element.isIntersecting){
+            element.target.classList.add("widoczna");
+        }
+    });
+});
+
+document.querySelectorAll(".sekcja").forEach(sekcja => {
+    obserwator.observe(sekcja);
+});
+</script>
+
+</body>
+</html>

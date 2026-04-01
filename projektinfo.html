@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Informacje – Bali</title>
+    <link rel="stylesheet" href="projektcss.css">
+</head>
+<body>
+
+<header>
+    <h1>Informacje o Bali</h1>
+    <nav>
+        <ul>
+            <li><a href="projektGlowna.html">Strona główna</a></li>
+            <li><a href="projektgaleria.html">Galeria</a></li>
+            <li><a href="projektinfo.html">Informacje</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== CIEKAWOSTKI ===== -->
+<section class="sekcja widoczna">
+    <h2>Ciekawostki</h2>
+    <button id="btnCiekawostka">Pokaż ciekawostkę</button>
+    <p id="ciekawostka"></p>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section class="sekcja widoczna">
+    <h2>Quiz – Sprawdź swoją wiedzę o Bali</h2>
+    <div id="quiz"></div>
+    <button id="sprawdzQuiz">Zakończ quiz</button>
+    <h3 id="wynik"></h3>
+</section>
+
+<script>
+
+// ===== CIEKAWOSTKI =====
+let ciekawostki = [
+    "Na Bali znajduje się ponad 20 000 świątyń.",
+    "Wyspa nazywana jest Wyspą Bogów.",
+    "Bali ma aktywny wulkan – Agung.",
+    "Najpopularniejsze miasto turystyczne to Ubud.",
+    "Bali słynie z tarasowych pól ryżowych."
+];
+
+document.getElementById("btnCiekawostka")
+.addEventListener("click", function() {
+    let los = Math.floor(Math.random() * ciekawostki.length);
+    document.getElementById("ciekawostka").innerText = ciekawostki[los];
+});
+
+
+// ===== QUIZ Z 7 PYTANIAMI =====
+
+// Tablica z pytaniami i poprawnymi odpowiedziami
+let pytania = [
+    {
+        pytanie: "1. Najwyższy wulkan na Bali to:",
+        odpowiedzi: ["Agung", "Etna", "Wezuwiusz"],
+        poprawna: 0
+    },
+    {
+        pytanie: "2. Bali należy do kraju:",
+        odpowiedzi: ["Tajlandia", "Indonezja", "Filipiny"],
+        poprawna: 1
+    },
+    {
+        pytanie: "3. Najbardziej znane pola ryżowe znajdują się w:",
+        odpowiedzi: ["Ubud", "Bangkok", "Tokio"],
+        poprawna: 0
+    },
+    {
+        pytanie: "4. Bali jest wyspą w regionie:",
+        odpowiedzi: ["Europa", "Azja", "Afryka"],
+        poprawna: 1
+    },
+    {
+        pytanie: "5. Na Bali dominuje religia:",
+        odpowiedzi: ["Hinduizm", "Chrześcijaństwo", "Buddyzm"],
+        poprawna: 0
+    },
+    {
+        pytanie: "6. Popularna świątynia na skale nad oceanem to:",
+        odpowiedzi: ["Tanah Lot", "Koloseum", "Big Ben"],
+        poprawna: 0
+    },
+    {
+        pytanie: "7. Bali słynie z pięknych:",
+        odpowiedzi: ["Pustyń", "Lodowców", "Plaż"],
+        poprawna: 2
+    }
+];
+
+// Pobranie miejsca na quiz
+let quizDiv = document.getElementById("quiz");
+
+// Generowanie pytań dynamicznie
+pytania.forEach(function(p, indeks) {
+
+    let blok = document.createElement("div");
+    blok.innerHTML = "<p>" + p.pytanie + "</p>";
+
+    p.odpowiedzi.forEach(function(odp, nr) {
+
+        let radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "pytanie" + indeks;
+        radio.value = nr;
+
+        blok.appendChild(radio);
+        blok.appendChild(document.createTextNode(odp));
+        blok.appendChild(document.createElement("br"));
+    });
+
+    quizDiv.appendChild(blok);
+});
+
+// Sprawdzanie quizu
+document.getElementById("sprawdzQuiz")
+.addEventListener("click", function() {
+
+    let punkty = 0;
+
+    pytania.forEach(function(p, indeks) {
+
+        let zaznaczona = document.querySelector('input[name="pytanie' + indeks + '"]:checked');
+
+        if(zaznaczona && parseInt(zaznaczona.value) === p.poprawna) {
+            punkty++;
+        }
+
+    });
+
+    let wynik = document.getElementById("wynik");
+    wynik.innerText = "Twój wynik: " + punkty + " / " + pytania.length;
+
+    // Ocena opisowa
+    if(punkty === pytania.length) {
+        wynik.innerText += " 🏆 Perfekcyjnie!";
+    } else if(punkty >= 4) {
+        wynik.innerText += " 👍 Bardzo dobrze!";
+    } else {
+        wynik.innerText += " 📚 Warto jeszcze poczytać o Bali!";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

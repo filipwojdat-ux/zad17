@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria – Bari</title>
+    <link rel="stylesheet" href="projektcss.css">
+</head>
+<body>
+
+<header>
+    <h1>Galeria Bari </h1>
+    <nav>
+        <ul>
+            <li><a href="projektGlowna.html">Strona główna</a></li>
+            <li><a href="projektgaleria.html">Galeria</a></li>
+            <li><a href="projektinfo.html">Informacje</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Slider zdjęć Bari -->
+<section class="slider">
+    <img id="slider" src="obraz/baner.jpg" alt="Zdjęcie Bari">
+    <div class="przyciski-slidera">
+        <button onclick="poprzednie()">⟵</button>
+        <button onclick="nastepne()">⟶</button>
+    </div>
+</section>
+
+<!-- Galeria 10 zdjęć Bari -->
+<section class="galeria">
+    <img src="obraz/1.jpg" alt="Polignano a Mare">
+    <img src="obraz/2.jpg" alt="Bari panorama">
+    <img src="obraz/3.jpg" alt="Widok na Bari">
+    <img src="obraz/4.jpg" alt="Zamek w Bari">
+    <img src="obraz/5.jpg" alt="Offer module Bari">
+    <img src="obraz/6.jpg" alt="Zdjęcie Bari">
+    <img src="obraz/7.jpg" alt="Widok miasta">
+    <img src="obraz/8.jpg" alt="Projekt CSS">
+    <img src="obraz/9.jpg" alt="Galeria projektu">
+    <img src="obraz/10.jpg" alt="Strona główna projektu">
+</section>
+<script>
+// Tablica zdjęć do slidera (lokalne pliki)
+let zdjecia = [
+    "obraz/1.jpg",
+    "obraz/2.jpg",
+    "obraz/3.jpg",
+    "obraz/4.jpg",
+    "obraz/5.jpg",
+    "obraz/6.jpg",
+    "obraz/7.jpg",
+    "obraz/8.jpg",
+    "obraz/9.jpg",
+    "obraz/10.jpg",
+    "obraz/baner.jpg",
+];
+
+// Aktualny numer zdjęcia
+let numer = 0;
+
+// Funkcja następnego zdjęcia
+function nastepne(){
+    numer = (numer + 1) % zdjecia.length;
+    document.getElementById("slider").src = zdjecia[numer];
+}
+
+// Funkcja poprzedniego zdjęcia
+function poprzednie(){
+    numer = (numer - 1 + zdjecia.length) % zdjecia.length;
+    document.getElementById("slider").src = zdjecia[numer];
+}
+</script>
+
+</body>
+</html>
