@@ -18,14 +18,12 @@
     </nav>
 </header>
 
-<!-- ===== CIEKAWOSTKI ===== -->
 <section class="sekcja widoczna">
     <h2>Ciekawostki</h2>
     <button id="btnCiekawostka">Pokaż ciekawostkę</button>
     <p id="ciekawostka"></p>
 </section>
 
-<!-- ===== QUIZ ===== -->
 <section class="sekcja widoczna">
     <h2>Quiz – Sprawdź swoją wiedzę o Bali</h2>
     <div id="quiz"></div>
@@ -35,7 +33,6 @@
 
 <script>
 
-// ===== CIEKAWOSTKI =====
 let ciekawostki = [
     "Na Bali znajduje się ponad 20 000 świątyń.",
     "Wyspa nazywana jest Wyspą Bogów.",
@@ -51,9 +48,6 @@ document.getElementById("btnCiekawostka")
 });
 
 
-// ===== QUIZ Z 7 PYTANIAMI =====
-
-// Tablica z pytaniami i poprawnymi odpowiedziami
 let pytania = [
     {
         pytanie: "1. Najwyższy wulkan na Bali to:",
@@ -92,10 +86,8 @@ let pytania = [
     }
 ];
 
-// Pobranie miejsca na quiz
 let quizDiv = document.getElementById("quiz");
 
-// Generowanie pytań dynamicznie
 pytania.forEach(function(p, indeks) {
 
     let blok = document.createElement("div");
@@ -116,7 +108,6 @@ pytania.forEach(function(p, indeks) {
     quizDiv.appendChild(blok);
 });
 
-// Sprawdzanie quizu
 document.getElementById("sprawdzQuiz")
 .addEventListener("click", function() {
 
@@ -135,13 +126,12 @@ document.getElementById("sprawdzQuiz")
     let wynik = document.getElementById("wynik");
     wynik.innerText = "Twój wynik: " + punkty + " / " + pytania.length;
 
-    // Ocena opisowa
     if(punkty === pytania.length) {
-        wynik.innerText += " 🏆 Perfekcyjnie!";
+        wynik.innerText += "  Perfekcyjnie!";
     } else if(punkty >= 4) {
-        wynik.innerText += " 👍 Bardzo dobrze!";
+        wynik.innerText += "  Bardzo dobrze!";
     } else {
-        wynik.innerText += " 📚 Warto jeszcze poczytać o Bali!";
+        wynik.innerText += "  Warto jeszcze poczytać o Bali!";
     }
 
 });
