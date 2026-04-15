@@ -1,4 +1,3 @@
-/* Ustawienia ogólne strony */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -6,14 +5,14 @@ body {
     color: white;
 }
 
-/* Nagłówek strony */
+
 header {
     background: rgba(0,0,0,0.7);
     padding: 15px;
     text-align: center;
 }
 
-/* Menu nawigacyjne */
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -34,14 +33,12 @@ nav a:hover {
     color: gold;
 }
 
-/* Sekcja powitalna */
 .hero {
     text-align: center;
     padding: 100px 20px;
     animation: pojawianie 2s ease-in-out;
 }
 
-/* Przyciski */
 button {
     padding: 10px 20px;
     border: none;
@@ -54,7 +51,6 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Slider */
 .slider {
     text-align: center;
     padding: 20px;
@@ -66,7 +62,6 @@ button:hover {
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-/* Galeria zdjęć */
 .galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -84,7 +79,6 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Sekcje treści */
 .sekcja {
     opacity: 0;
     transform: translateY(30px);
@@ -93,19 +87,16 @@ button:hover {
     text-align: center;
 }
 
-/* Klasa dodawana przy animacji */
 .widoczna {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Animacja pojawiania */
 @keyframes pojawianie {
     from {opacity: 0;}
     to {opacity: 1;}
 }
 
-/* Stopka */
 footer {
     text-align: center;
     padding: 20px;
