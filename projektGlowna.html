@@ -17,8 +17,6 @@
         </ul>
     </nav>
 </header>
-
-<!-- Sekcja powitalna -->
 <section class="hero">
     <h2>Odkryj uroki Bari</h2>
     <p>Bari to historyczne miasto portowe we Włoszech, znane z pięknych plaż, starych kościołów i klimatycznych uliczek.</p>
@@ -27,7 +25,6 @@
       </button>
 </section>
 
-<!-- Sekcja opisu miasta -->
 <section id="opis" class="sekcja">
     <h2>Dlaczego warto odwiedzić Bari?</h2>
     <p>
@@ -43,12 +40,11 @@
 </footer>
 
 <script>
-// Funkcja płynnego przewijania do sekcji opisu
+
 function przewinDoSekcji() {
     document.getElementById("opis").scrollIntoView({ behavior: "smooth" });
 }
 
-// Animacja pojawiania się sekcji przy przewijaniu
 const obserwator = new IntersectionObserver(elementy => {
     elementy.forEach(element => {
         if(element.isIntersecting){
