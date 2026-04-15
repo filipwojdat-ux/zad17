@@ -18,54 +18,48 @@
     </nav>
 </header>
 
-<!-- Slider zdjęć Bari -->
 <section class="slider">
-    <img id="slider" src="obraz/baner.jpg" alt="Zdjęcie Bari">
+    <img id="slider" src="/baner.jpg" alt="Zdjęcie Bari">
     <div class="przyciski-slidera">
         <button onclick="poprzednie()">⟵</button>
         <button onclick="nastepne()">⟶</button>
     </div>
 </section>
 
-<!-- Galeria 10 zdjęć Bari -->
 <section class="galeria">
-    <img src="obraz/1.jpg" alt="Polignano a Mare">
-    <img src="obraz/2.jpg" alt="Bari panorama">
-    <img src="obraz/3.jpg" alt="Widok na Bari">
-    <img src="obraz/4.jpg" alt="Zamek w Bari">
-    <img src="obraz/5.jpg" alt="Offer module Bari">
-    <img src="obraz/6.jpg" alt="Zdjęcie Bari">
-    <img src="obraz/7.jpg" alt="Widok miasta">
-    <img src="obraz/8.jpg" alt="Projekt CSS">
-    <img src="obraz/9.jpg" alt="Galeria projektu">
-    <img src="obraz/10.jpg" alt="Strona główna projektu">
+    <img src="/1.jpg" alt="Polignano a Mare">
+    <img src="/2.jpg" alt="Bari panorama">
+    <img src="/3.jpg" alt="Widok na Bari">
+    <img src="/4.jpg" alt="Zamek w Bari">
+    <img src="/5.jpg" alt="Offer module Bari">
+    <img src="/6.jpg" alt="Zdjęcie Bari">
+    <img src="/7.jpg" alt="Widok miasta">
+    <img src="/8.jpg" alt="Projekt CSS">
+    <img src="/9.jpg" alt="Galeria projektu">
+    <img src="/10.jpg" alt="Strona główna projektu">
 </section>
 <script>
-// Tablica zdjęć do slidera (lokalne pliki)
 let zdjecia = [
-    "obraz/1.jpg",
-    "obraz/2.jpg",
-    "obraz/3.jpg",
-    "obraz/4.jpg",
-    "obraz/5.jpg",
-    "obraz/6.jpg",
-    "obraz/7.jpg",
-    "obraz/8.jpg",
-    "obraz/9.jpg",
-    "obraz/10.jpg",
-    "obraz/baner.jpg",
+    "/1.jpg",
+    "/2.jpg",
+    "/3.jpg",
+    "/4.jpg",
+    "/5.jpg",
+    "/6.jpg",
+    "/7.jpg",
+    "/8.jpg",
+    "/9.jpg",
+    "/10.jpg",
+    "/baner.jpg",
 ];
 
-// Aktualny numer zdjęcia
 let numer = 0;
 
-// Funkcja następnego zdjęcia
 function nastepne(){
     numer = (numer + 1) % zdjecia.length;
     document.getElementById("slider").src = zdjecia[numer];
 }
 
-// Funkcja poprzedniego zdjęcia
 function poprzednie(){
     numer = (numer - 1 + zdjecia.length) % zdjecia.length;
     document.getElementById("slider").src = zdjecia[numer];
